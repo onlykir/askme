@@ -10,13 +10,17 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :username, presence: true, uniqueness: true,
             length: { maximum: 40 }, format: { with: USERNAME_VALID }
-  validates :email, presence: true, uniqueness: { case_sensitive: false },
+  validates :email, presence: true, uniqueness: true,
             format: { with: EMAIL_VALID }
 
   attr_accessor :password
 
   validates :password, presence: true, confirmation: true, on: :create
 
+  before_validation do
+    self.email = email.downcase
+    self.username = username.downcase
+  end
   before_save :data_preparation
 
   def self.hash_to_string(password_hash)
@@ -24,7 +28,7 @@ class User < ApplicationRecord
   end
 
   def self.authenticate(email, password)
-    user = find_by(email: email)
+    user = find_by(email: email.downcase)
     if user.present? && user.password_hash == User.hash_to_string(OpenSSL::PKCS5.pbkdf2_hmac(password, user.password_salt, ITERATIONS, DIGEST.length, DIGEST))
       user
     else
