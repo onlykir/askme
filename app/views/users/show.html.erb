@@ -17,6 +17,14 @@
   </div>
 </div>
 
+<div class="user-posts" >
+  <h2 class="title-medium">
+    Задано <%= @questions.count %>
+    <%= declination_of_word(
+            @questions.count, "вопрос", "вопроса", "вопросов") %>:
+  </h2>
+</div>
+
 <%# Блок с формой для задавания пользователю вопроса %>
 <div class="user-question-form-div column-1-4 column-1-4-right" id='ask-form'>
   <div class="user-question-form buffer-both">

@@ -53,6 +53,13 @@
   background: #D9E6E5;
 }
 
+.user-posts {
+  padding-top: 20px;
+  padding-left: 10px;
+  color: #EFEFEF;
+
+}
+
 @media (max-width: 960px) {
   .user-question-form {
     margin-left: 0;
