@@ -1,0 +1,33 @@
+.questions-block {
+  display: inline-block;
+  background: #D9E6E5;
+  padding-left: 20px;
+
+}
+
+.questions-block-background {
+  background: #D9E6E5;
+}
+
+.questions-block-text {
+  padding-left: 20px;
+}
+
+.questions-all {
+  display: flex;
+  align-items: center;
+}
+
+.questions-complite {
+  display: none;
+}
+
+.questions-block:hover .questions-complite {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.questions-block:hover .questions-all{
+  display: none;
+}

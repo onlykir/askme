@@ -20,6 +20,7 @@
  *= require layout
  *= require users
  *= require questions
+ *= require questions_count
 
  *= require_self
  */
