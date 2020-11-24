@@ -5,6 +5,8 @@ ruby '2.7.0'
 
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 
+gem 'rails_12factor'
+
 gem 'uglifier'
 gem 'puma', '~> 4.1'
 gem 'webpacker', '~> 4.0'
