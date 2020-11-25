@@ -22,45 +22,6 @@
   </div>
 <% end %>>
 
-<!--<div class="user-posts" >
-  <h3 id="h" class="title-medium">
-    Всего <%#= @questions.count %>
-    <%= declination_of_word(
-            @questions.count, "вопрос", "вопроса", "вопросов") %>
-  </h3>
-</div>-->
-
-<%# Блок количества всех/отвеченных вопросов %>
-<div class="column-3-4">
-  <div class="questions-block-background">
-  <div class="questions-block buffer-both">
-    <div class="questions-all">
-      <%= image_tag asset_path 'all_questions.png', alt: '[Все вопросы]' %>
-      <div class="text-lead questions-block-text">
-        Задано <%= @questions.count %>
-        <%= declination_of_word(
-                @questions.count, "вопрос", "вопроса", "вопросов") %>
-      </div>
-    </div>
-    <div class="questions-complite">
-      <%= image_tag asset_path 'complite_questions.png', alt: '[Отвеченные вопросы]' %>
-      <div class="text-lead questions-block-text">
-        <% complite_questions = @questions.count { |question| question.answer }%>
-        <% if @questions.count == complite_questions %>
-          Нет неотвеченных вопросов
-        <% else %>
-          Отвечено на <%= complite_questions%>
-          <%= declination_of_word(
-                  complite_questions, "вопрос", "вопроса", "вопросов") %>
-          из <%=@questions.count %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  </div>
-</div>
-
-
 <%# Блок с формой для задавания пользователю вопроса %>
 <div class="user-question-form-div column-1-4 column-1-4-right" id='ask-form'>
   <div class="user-question-form buffer-both">
@@ -77,6 +38,36 @@
           <%= submit_tag 'Задать вопрос', class: 'button button-small button-dark' %>
         </div>
       <% end %>
+    </div>
+  </div>
+</div>
+
+<%# Блок количества всех/отвеченных вопросов %>
+<div class="column-3-4">
+  <div class="questions-block-background">
+    <div class="questions-block buffer-both">
+      <div class="questions-all">
+        <%= image_tag asset_path 'all_questions.png', alt: '[Все вопросы]' %>
+        <div class="text-lead questions-block-text">
+          Задано <%= @questions.count %>
+          <%= declination_of_word(
+                  @questions.count, "вопрос", "вопроса", "вопросов") %>
+        </div>
+      </div>
+      <div class="questions-complite">
+        <%= image_tag asset_path 'complite_questions.png', alt: '[Отвеченные вопросы]' %>
+        <div class="text-lead questions-block-text">
+          <% complite_questions = @questions.count { |question| question.answer }%>
+          <% if @questions.count == complite_questions %>
+            Нет неотвеченных вопросов
+          <% else %>
+            Отвечено на <%= complite_questions%>
+            <%= declination_of_word(
+                    complite_questions, "вопрос", "вопроса", "вопросов") %>
+            из <%=@questions.count %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
