@@ -7,6 +7,14 @@ module ApplicationHelper
     end
   end
 
+  def user_profile_background(user)
+    if user.profile_background.present?
+      user.profile_background
+    else
+      "#005a55"
+    end
+  end
+
   def declination_of_word(count, form_, form_a, form_ov)
     return form_ov if (11..14).include?(count % 100)
 

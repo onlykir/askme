@@ -1,5 +1,6 @@
 <%# Блок с информацией о пользователей %>
-<div class="user-header text-center">
+<%= content_tag(:div, class: "user-header text-center",
+                style: "background-color: #{user_profile_background(@user)}") do %>
   <h1 class="title-medium">
     <%= @user.name %>
   </h1>
@@ -19,7 +20,7 @@
   <div class="user-ask-button container text-center">
     <%= link_to "Спроси меня", '', class: 'button button-light', id: 'ask-button' %>
   </div>
-</div>
+<% end %>>
 
 <!--<div class="user-posts" >
   <h3 id="h" class="title-medium">
