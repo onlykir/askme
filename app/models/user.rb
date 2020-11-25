@@ -50,7 +50,7 @@ class User < ApplicationRecord
   end
 
   def validation_preparation
-    self.email = email.downcase
-    self.username = username.downcase
+    self.email = email&.downcase
+    self.username = username&.downcase
   end
 end
