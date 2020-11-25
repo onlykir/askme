@@ -8,27 +8,24 @@ class User < ApplicationRecord
   has_many :questions, dependent: :destroy
 
   validates :name, presence: true
-  validates :username, presence: true, uniqueness: true,
+  validates :username, presence: true, uniqueness: { scope: :user_id },
             length: { maximum: 40 }, format: { with: USERNAME_VALID }
-  validates :email, presence: true, uniqueness: true,
+  validates :email, presence: true, uniqueness: { scope: :user_id },
             format: { with: EMAIL_VALID }
 
   attr_accessor :password
 
   validates :password, presence: true, confirmation: true, on: :create
 
-  before_validation do
-    self.email = email.downcase
-    self.username = username.downcase
-  end
-  before_save :data_preparation
+  before_validation :validation_preparation
+  before_save :save_preparation
 
   def self.hash_to_string(password_hash)
     password_hash.unpack('H*')[0]
   end
 
   def self.authenticate(email, password)
-    user = find_by(email: email.downcase)
+    user = find_by(email: email&.downcase)
     if user.present? && user.password_hash == User.hash_to_string(OpenSSL::PKCS5.pbkdf2_hmac(password, user.password_salt, ITERATIONS, DIGEST.length, DIGEST))
       user
     else
@@ -48,8 +45,13 @@ class User < ApplicationRecord
     end
   end
 
-  def data_preparation
+  def save_preparation
     encrypt_password
     self.email = email.downcase
+  end
+
+  def validation_preparation
+    self.email = email.downcase
+    self.username = username.downcase
   end
 end
