@@ -5,6 +5,12 @@ class User < ApplicationRecord
   DIGEST = OpenSSL::Digest::SHA256.new
   EMAIL_VALID = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   USERNAME_VALID = /\A[a-z0-9_]+\z/i
+
+  attr_accessor :password
+
+  before_validation :validation_preparation
+  before_save :save_preparation
+
   has_many :questions, dependent: :destroy
 
   validates :name, presence: true
@@ -12,13 +18,7 @@ class User < ApplicationRecord
             length: { maximum: 40 }, format: { with: USERNAME_VALID }
   validates :email, presence: true, uniqueness: true,
             format: { with: EMAIL_VALID }
-
-  attr_accessor :password
-
   validates :password, presence: true, confirmation: true, on: :create
-
-  before_validation :validation_preparation
-  before_save :save_preparation
 
   def self.hash_to_string(password_hash)
     password_hash.unpack('H*')[0]
@@ -48,6 +48,7 @@ class User < ApplicationRecord
   def save_preparation
     encrypt_password
     self.email = email.downcase
+    sleep(2)
   end
 
   def validation_preparation

@@ -1,0 +1,2 @@
+      invoke  active_record
+      create    db/migrate/20201125193029_add_email_to_users.rb
