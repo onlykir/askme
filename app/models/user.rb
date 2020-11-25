@@ -47,8 +47,6 @@ class User < ApplicationRecord
 
   def save_preparation
     encrypt_password
-    self.email = email.downcase
-    sleep(2)
   end
 
   def validation_preparation
