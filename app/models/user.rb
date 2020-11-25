@@ -8,9 +8,9 @@ class User < ApplicationRecord
   has_many :questions, dependent: :destroy
 
   validates :name, presence: true
-  validates :username, presence: true, uniqueness: { scope: :user_id },
+  validates :username, presence: true, uniqueness: true,
             length: { maximum: 40 }, format: { with: USERNAME_VALID }
-  validates :email, presence: true, uniqueness: { scope: :user_id },
+  validates :email, presence: true, uniqueness: true,
             format: { with: EMAIL_VALID }
 
   attr_accessor :password
