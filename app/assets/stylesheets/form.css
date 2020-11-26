@@ -34,3 +34,27 @@
   list-style: none;
   margin-bottom: 10px;
 }
+
+.hide {
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+}
+
+.file-color-label {
+  text-align: center;
+  width: 200px;
+  display: inline-block;
+  cursor: pointer;
+  background-color: #00b6ad;
+  padding: 15px 30px;
+  color: white;
+  margin-top: 10px;
+}
+
+.file-color-label:hover {
+  background-color: #00948a;
+}

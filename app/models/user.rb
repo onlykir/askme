@@ -12,6 +12,7 @@ class User < ApplicationRecord
   before_save :save_preparation
 
   has_many :questions, dependent: :destroy
+  mount_uploader :avatar, AvatarUploader
 
   validates :name, presence: true
   validates :username, presence: true, uniqueness: true,
