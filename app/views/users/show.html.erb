@@ -57,14 +57,13 @@
       <div class="questions-complite">
         <%= image_tag asset_path 'complite_questions.png', alt: '[Отвеченные вопросы]' %>
         <div class="text-lead questions-block-text">
-          <% complite_questions = @questions.count { |question| question.answer }%>
-          <% if @questions.count == complite_questions %>
+          <% if @questions_count == @questions_complite %>
             Нет неотвеченных вопросов
           <% else %>
-            Отвечено на <%= complite_questions%>
+            Отвечено на <%= @questions_complite%>
             <%= declination_of_word(
-                    complite_questions, "вопрос", "вопроса", "вопросов") %>
-            из <%=@questions.count %>
+                    @questions_complite, "вопрос", "вопроса", "вопросов") %>
+            из <%= @questions_count %>
           <% end %>
         </div>
       </div>

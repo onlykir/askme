@@ -39,6 +39,9 @@ class UsersController < ApplicationController
     @questions = @user.questions.order(created_at: :desc)
 
     @new_question = @user.questions.build
+
+    @questions_count = @questions.count
+    @questions_complite = @questions.count { |question| question.answer }
   end
 
   private

@@ -15,12 +15,12 @@ module ApplicationHelper
     end
   end
 
-  def declination_of_word(count, form_, form_a, form_ov)
+  def declination_of_word(count, form, form_a, form_ov)
     return form_ov if (11..14).include?(count % 100)
 
     last_num = count % 10
 
-    return form_ if last_num == 1
+    return form if last_num == 1
     return form_a if (2..4).include?(last_num)
     form_ov
   end
