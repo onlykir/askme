@@ -41,3 +41,28 @@
 .question-actions a {
   margin-left: 10px;
 }
+
+.question-author {
+  display: flex;
+  align-items: center;
+}
+
+.question-author-username {
+  font-style: italic;
+  margin: 0 3px;
+}
+
+.question-author-image {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #00b6ad;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 3px;
+}
+
+.question-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
