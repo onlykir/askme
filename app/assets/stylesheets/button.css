@@ -24,6 +24,11 @@
   color: #fff;
 }
 
+.button-danger {
+  background: #B22222;
+  color: #fff;
+}
+
 .button-small {
   font-size: 15px;
   line-height: 15px;

@@ -22,6 +22,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    load_user.destroy
+    flash[:success] = "Пользователь удалён"
+    redirect_to root_path
+  end
+
   def edit
   end
 

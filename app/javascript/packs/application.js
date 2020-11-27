@@ -6,6 +6,7 @@
 import './add_question'
 
 require("@rails/ujs").start()
+require('data-confirm-modal')
 require("@rails/activestorage").start()
 require("jquery")
 require("channels")

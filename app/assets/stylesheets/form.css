@@ -35,6 +35,10 @@
   margin-bottom: 10px;
 }
 
+.form-right {
+  float: right;
+}
+
 .hide {
   position: absolute;
   overflow: hidden;
