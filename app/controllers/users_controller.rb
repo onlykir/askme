@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    load_user.destroy
+    @user.destroy
     flash[:success] = "Пользователь удалён"
     redirect_to root_path
   end

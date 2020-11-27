@@ -71,13 +71,16 @@
   </div>
 </div>
 
+
 <%# Блок со списком вопросов к пользователю %>
-<div class="column-3-4">
-  <div class="user-questions buffer-both">
-    <div class="questions-list">
-      <% @questions.each do |question| %>
-        <%= render partial: 'questions/question', object: question %>
-      <% end %>
+<% if @questions.any? %>
+  <%= content_tag(:div, class: "column-3-4") do %>
+    <div class="user-questions buffer-both">
+      <div class="questions-list">
+        <% @questions.each do |question| %>
+          <%= render partial: 'questions/question', object: question %>
+        <% end %>
+      </div>
     </div>
-  </div>
-</div>
+  <% end %>>
+<% end %>>
