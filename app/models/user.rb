@@ -5,7 +5,7 @@ class User < ApplicationRecord
   DIGEST = OpenSSL::Digest::SHA256.new
   EMAIL_VALID = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   USERNAME_VALID = /\A[a-z0-9_]+\z/i
-
+  BGC_VALID = /\A[#a-z0-9]+\z/i
   attr_accessor :password
 
   before_validation :validation_preparation
