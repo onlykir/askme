@@ -5,6 +5,7 @@ class User < ApplicationRecord
   DIGEST = OpenSSL::Digest::SHA256.new
   EMAIL_VALID = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   USERNAME_VALID = /\A[a-z0-9_]+\z/i
+  BGC = /\A#[a-z0-9]{,6}\z/i
   attr_accessor :password
 
   before_validation :validation_preparation
@@ -19,6 +20,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true,
             format: { with: EMAIL_VALID }
   validates :password, presence: true, confirmation: true, on: :create
+  validates :profile_background, format: { with: BGC }
 
   def self.hash_to_string(password_hash)
     password_hash.unpack('H*')[0]
