@@ -20,7 +20,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true,
             format: { with: EMAIL_VALID }
   validates :password, presence: true, confirmation: true, on: :create
-  validates :profile_background, format: { with: BGC }
+  validates :profile_background, format: { with: BGC }, on: :update
 
   def self.hash_to_string(password_hash)
     password_hash.unpack('H*')[0]
