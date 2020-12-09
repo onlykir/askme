@@ -6,13 +6,13 @@
         <%= question.text %>
       </div>
 
-      <% if author_by_id(question.author_id) %>
+      <% if question.author.present? %>
         <div class="question-author">
           <div class="question-author-username">
-            <%= link_to "@#{author_by_id(question.author_id).username}", user_path(author_by_id(question.author_id)) %>
+            <%= link_to "@#{question.author.username}", user_path(question.author) %>
           </div>
           <div class="question-author-image">
-            <%= image_tag user_avatar(author_by_id(question.author_id)), class: 'user-image' %>
+            <%= image_tag user_avatar(question.author), class: 'user-image' %>
           </div>
         </div>
       <% end %>
