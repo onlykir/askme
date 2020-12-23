@@ -3,7 +3,7 @@
 
     <div class="question-title">
       <div class="question-text text-lead">
-        <%= question.text %>
+        <%= text_with_hashtag_link(question.text) %>
       </div>
 
       <% if question.author.present? %>
@@ -20,7 +20,7 @@
 
     <% if question.answer.present? %>
       <div class="question-answer text-lead">
-        <%= question.answer %>
+        <%= text_with_hashtag_link(question.answer) %>
       </div>
     <% end %>
 
