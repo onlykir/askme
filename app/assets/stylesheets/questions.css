@@ -66,3 +66,19 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.hashtag {
+  font-style: italic;
+}
+
+.hashtag:hover {
+  color: #5F9EA0;
+  font-style: italic;
+}
+
+.hashtag-title {
+  margin: 20px;
+  margin-left: 0;
+  color: white;
+  font-size: 20px;
+}

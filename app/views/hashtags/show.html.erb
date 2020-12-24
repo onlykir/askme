@@ -1,8 +1,8 @@
 <div class="column-3-4">
+  <p class="hashtag-title buffer-both"><%= @questions.first.hashtags[0].text %>:</p>
   <div class="user-questions buffer-both">
     <div class="questions-list">
       <% @questions.each do |question| %>
-        <%=link_to "@#{question.user.username}", user_path(question.user) %>
         <%= render partial: 'questions/question', object: question %>
       <% end %>
     </div>

@@ -1,7 +1,7 @@
 module QuestionsHelper
   def text_with_hashtag_link(text)
     text.gsub(Hashtag::REGEXP) do |ht|
-      link_to ht, hashtag_path(ht.delete('#').downcase)
+      link_to ht, hashtag_path(ht.delete('#').downcase), class: "hashtag"
     end.html_safe
   end
 end
