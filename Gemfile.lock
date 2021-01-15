@@ -84,6 +84,7 @@ GEM
       ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
+    json (2.5.1)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -148,6 +149,8 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    recaptcha (5.6.0)
+      json
     ruby-vips (2.0.17)
       ffi (~> 1.9)
     sprockets (4.0.2)
@@ -192,6 +195,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.4)
   rails_12factor
+  recaptcha
   sqlite3 (~> 1.4)
   uglifier
   web-console (>= 3.3.0)

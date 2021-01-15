@@ -16,6 +16,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 
+gem 'recaptcha', require: 'recaptcha/rails'
+
 group :production do
   gem 'pg'
 end
