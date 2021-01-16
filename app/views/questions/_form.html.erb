@@ -26,7 +26,7 @@
       </div>
     <% end %>
 
-    <%= #recaptcha_tags unless current_user.present? %>
+    <%= recaptcha_tags unless current_user.present? %>
 
     <div class="form-action buffer-both">
       <%= f.submit 'Сохранить', class: 'button button-dark button-small' %>
