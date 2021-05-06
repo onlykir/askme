@@ -15,7 +15,7 @@ ruby '2.7.0' and Ruby on Rails 6.0.3
 
 ### Installation:
 ```
-git clone git@github.com:onlykir/bbq.git
+$ git clone git@github.com:onlykir/bbq.git
 ```
 
 ### Running:
@@ -23,18 +23,19 @@ To run the application, you need to run `bundle` in the application directory to
 
 + go to the desired directory
 ```
-cd askme
+$ cd askme
 ```
 + catch the necessary gems
 ```
-bundle
+$ bundle
 ``` 
-+ roll migrations
++ create a database and roll migrations
 ```
-rails db:migrate
+$ rails db:create
+$ rails db:migrate
 ``` 
 + launch
 ```
-rails s
+$ rails s
 ``` 
 And the app will be available on the local server.
